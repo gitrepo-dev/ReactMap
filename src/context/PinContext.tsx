@@ -32,8 +32,10 @@ export const PinProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setLoading(false)
     }
     const removePin = (id: string) => setPins(pins.filter((p) => p.id !== id));
-    const updatePin = (id: string, updated: Partial<Pin>) =>
+    const updatePin = (id: string, updated: Partial<Pin>) => {
         setPins(pins.map((p) => (p.id === id ? { ...p, ...updated } : p)));
+        setLoading(false)
+    }
 
     return (
         <PinContext.Provider value={{ loading, setLoading, pins, addPin, removePin, updatePin, markerRefs }}>
