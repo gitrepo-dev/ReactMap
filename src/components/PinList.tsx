@@ -16,12 +16,6 @@ function PinList() {
                         <source media="(min-width: 641px)" srcSet="./icons/search.png" />
                         <img src="./icons/search.png" alt="Responsive image" />
                     </picture>
-                    {/* <img
-                        src="./icons/search.png"
-                        alt="Search location icon"
-                        title="No result found"
-                        className="inline-block mb-4 mt-20 sm:mt-0"
-                    /> */}
                     <p>
                         No Result found <br />
                         <small>Your map pin list will show here</small>

@@ -34,9 +34,9 @@ const MapEvents = () => {
 // Create custom icon
 const customIcon = new L.Icon({
   iconUrl: "./icons/MapPin.svg",
-  iconSize: [32, 32],      // size of the icon
-  iconAnchor: [16, 32],    // point of the icon which corresponds to marker's location
-  popupAnchor: [0, -32],   // where the popup should open relative to the iconAnchor
+  iconSize: [32, 32],      
+  iconAnchor: [16, 32], 
+  popupAnchor: [0, -32],  
 });
 
 
