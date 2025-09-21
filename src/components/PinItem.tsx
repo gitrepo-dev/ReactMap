@@ -42,7 +42,10 @@ function PinItem({ pins, pin, orderId }: { pins: Pin[]; pin: Pin; orderId: numbe
         </p>
       </div>
       <button
-        onClick={() => removePin(pin.id)}
+        onClick={() => {
+            
+            removePin(pin.id)
+        }}
         className="border border:dark rounded-full h-8 w-8 p-1.5 hover:bg-gray-100 trasition-background duration-75"
       >
         <img src="./icons/delete.png" alt="delete" title="Delete the pinned location" />

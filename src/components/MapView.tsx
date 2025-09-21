@@ -16,11 +16,13 @@ const fetchAddress = async (lat: number, lng: number): Promise<string> => {
 
 
 const MapEvents = () => {
-  const { addPin } = usePins();
+ 
+  const { addPin, setLoading } = usePins();
 
 
   useMapEvents({
     click: async (e) => {
+      setLoading(true)
       const { lat, lng } = e.latlng;
       const address = await fetchAddress(lat, lng);
       addPin({ id: uuidv4(), lat, lng, address, draggable: true });
@@ -42,7 +44,7 @@ const customIcon = new L.Icon({
 
 function MapView() {
 
-  const { pins, updatePin, markerRefs } = usePins();
+  const { pins, updatePin, markerRefs, setLoading} = usePins();
   return (
     <MapContainer center={[-37.8136, 144.9631]} zoom={13} zoomControl={false} className="h-[55vh] sm:h-[100vh] w-full sm:rounded-lg">
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
@@ -57,12 +59,15 @@ function MapView() {
             if (marker) markerRefs.current[pin.id] = marker;
           }}
           eventHandlers={{
+            
             dragend: async (e) => {
               const marker = e.target as L.Marker;
               const { lat, lng } = marker.getLatLng();
               const address = await fetchAddress(lat, lng);
               updatePin(pin.id, { lat, lng, address });
+              setLoading(true)
             },
+           
           }}
         >
           <Popup>{pin.address}</Popup>
