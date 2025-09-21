@@ -16,7 +16,7 @@ function PinItem({ pins, pin, orderId }: { pins: Pin[]; pin: Pin; orderId: numbe
 
   return (
     <li
-      className={`grid grid-cols-[auto_1fr_auto] items-center p-4 gap-4 ${
+      className={`grid grid-cols-[auto_1fr_auto] items-center p-4 gap-4 cursor-pointer ${
         pins?.length === orderId ? '' : 'border-b'
       }`}
       onMouseEnter={handleMouseEnter}
@@ -27,7 +27,7 @@ function PinItem({ pins, pin, orderId }: { pins: Pin[]; pin: Pin; orderId: numbe
       </span>
       <div>
         <p className="text-sm font-medium mb-2 text-xs">
-          {pin.address === 'Unknown' ? `Pin #${orderId}` : pin.address}
+          Pin #{orderId}
         </p>
         <p className="text-xs text-gray-500">
           <span className="flex items-center">

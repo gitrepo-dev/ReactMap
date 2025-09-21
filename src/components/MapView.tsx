@@ -60,14 +60,11 @@ function MapView() {
           }}
           eventHandlers={{
             dragend: async (e) => {
-              setLoading(true)
               const marker = e.target as L.Marker;
               const { lat, lng } = marker.getLatLng();
               const address = await fetchAddress(lat, lng);
-              updatePin(pin.id, { lat, lng, address });
-            
+              updatePin(pin.id, { lat, lng, address });         
             },
-           
           }}
         >
           <Popup>{pin.address}</Popup>

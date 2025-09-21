@@ -9,7 +9,7 @@ function PinList() {
             <h2 className="lg:text-lg font-bold border-b p-2 lg:p-4">Pin Lists</h2>
 
             {/* loading skelaton */}
-            {loading ? new Array(10).fill(0).map((el: number, idx:number) => <div key={el + idx} className="mx-auto w-full max-w-sm rounded-md p-4 opcity-0.2">
+            {loading ? new Array(8).fill(0).map((el: number, idx:number) => <div key={el + idx} className="mx-auto w-full max-w-sm rounded-md p-4 opcity-0.2">
                 <div className="flex animate-pulse space-x-4">
                     <div className="size-10 rounded-full bg-gray-200"></div>
                     <div className="flex-1 space-y-6 py-1">
@@ -26,12 +26,11 @@ function PinList() {
             </div>) : null}
 
 
-
             {/* Content */}
             {!pins.length ? (
-                <div className={"flex-1 flex sm:block sm:mt-10 flex-col items-center justify-center text-center"}>
+                <div className={"flex-1 flex lg:block lg:mt-10 flex-col items-center justify-center text-center"}>
                     <picture className="inline-block mb-4">
-                        <source media="(max-width: 640px)" srcSet="./icons/location.png" />
+                        <source media="(max-width: 768px)" srcSet="./icons/location.png" />
                         <source media="(min-width: 641px)" srcSet="./icons/search.png" />
                         <img src="./icons/search.png" alt="Responsive image" />
                     </picture>
